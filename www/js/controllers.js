@@ -33,6 +33,23 @@ angular.module('starter.controllers', [])
   $scope.doLogin = function() {
     console.log('Doing login', $scope.loginData);
 
+    $.ajax
+    ({
+      type: "GET",
+      url: "https://play.dhis2.org/demo/api/me",
+      headers: {
+        "Authorization": "Basic " + btoa("admin" + ":" + "district")
+      },
+      success: function (data) {
+        console.log(data);
+      }
+    });
+
+
+
+
+
+
     // Simulate a login delay. Remove this and replace with your login
     // code if using a login system
     $timeout(function() {
